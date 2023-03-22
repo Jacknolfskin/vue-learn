@@ -1,0 +1,10 @@
+{
+  "name": "2-vue-cli-service",
+  "lockfileVersion": 2,
+  "requires": true,
+  "packages": {},
+  "dependencies": {
+    "build": "^0.1.4",
+    "serve": "^14.1.2"
+  }
+}
