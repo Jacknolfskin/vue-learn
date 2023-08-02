@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo11</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+<script>
+   const app = Vue.createApp({
+        data(){
+            return{
+                message: 'test'
+            }
+        },
+        methods:{
+             handleItemClick(){
+                this.message = this.message == 'jspang.com' ? "技术胖" : "jspang.com"
+             }
+        },
+        // template: `<h2 
+        //         :class="message=='jspang.com'?'one':'two'" 
+        //         @click="handleItemClick" >
+        //         {{message}}
+        // </h2>`
+        template: `
+<h2 @click="handleItemClick" v-if="message=='jspang.com'" class="one" > {{message}} </h2>
+<h2 @click="handleItemClick" v-else-if="message=='技术胖'" class="two" > {{message}} </h2>
+<h2 @click="handleItemClick" v-else  class="three"> {{message}} </h2>
+    `
+    })
+    const vm = app.mount("#app")
+</script>
+<style>
+    .one {
+        color: red;
+    }
+    .two {
+        color: green;
+    }
+    .three{color:orange;}
+</style>
+
+</html>
