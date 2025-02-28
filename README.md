@@ -1,8 +1,7 @@
 # vue-learn
 用于学习vue
-学习进度：5
 
-#nvm
+# nvm
 常用命令
 nvm ls ：列出所有已安装的 node 版本
 nvm ls-remote ：列出所有远程服务器的版本（官方node version list）
