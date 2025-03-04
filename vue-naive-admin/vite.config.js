@@ -1,17 +1,18 @@
 import { defineConfig, loadEnv } from 'vite'
-import vue from '@vitejs/plugin-vue'
 import {createProxy, wrapperEnv} from './build/utils'
 import path from 'path'
+import { createVitePlugins } from './build/plugin'
 
 export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, process.cwd())
+  const isBuild = command === 'build'
   const viteEnv = wrapperEnv(env)
 
   // 这样就可以拿到定义好的环境变量了，也可以使用process.env.xxx这种方式进行访问
   const { VITE_PORT, VITE_PUBLIC_PATH, VITE_PROXY } = viteEnv
 
   return {
-    plugins: [vue()],
+    plugins: createVitePlugins(viteEnv, isBuild),
     base: VITE_PUBLIC_PATH || '/',
     resolve: {
       // 设置别名
